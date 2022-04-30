@@ -1,5 +1,6 @@
 import {GameMap} from '/static/js/game_map/base.js';
 import {Kyok} from '/static/js/player/kyok.js';
+import {Mais} from '/static/js/player/mais.js';
 
 class KOF {
     constructor(id) {
@@ -15,7 +16,7 @@ class KOF {
                 height : 200,
                 color : 'blue',
             }),
-            new Kyok(this, {
+            new Mais(this, {
                 id : 1,
                 x : 900,
                 y : 0, 
