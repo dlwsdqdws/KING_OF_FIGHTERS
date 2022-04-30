@@ -150,7 +150,7 @@ export class Player extends GameObject {
             }
         }
 
-        if (status === 3 || status === 4) {
+        if (status === 4) {
             if (this.frame_current_cnt == obj.frame_rate * (obj.frame_cnt - 1)) {
                 //stop when finishing last frame of attack
                 this.status = 0;
