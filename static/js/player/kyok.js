@@ -40,7 +40,7 @@ export class Kyok extends Player {
                 att_start : 16,
                 att_t : 1,
                 att_v : 1,   //v on x-axis
-                att_hp : 10,
+                att_hp : 20,
             });
 
             gif.onload = function () {

@@ -36,6 +36,8 @@ export class Player extends GameObject {
         this.ctx = this.root.game_map.ctx;
 
         this.hp = 100;
+        this.$hp = this.root.$kof.find(`.kof-head-hp-${this.id}>div`); 
+        this.$hp_div = this.$hp.find('div');
     }
 
     start() {
@@ -127,8 +129,16 @@ export class Player extends GameObject {
 
         this.frame_current_cnt = 0;
 
+        // console.log(this.root.players[1-this.id].animations.get(this.status).att_hp);
+        this.hp = Math.max(0, this.hp - this.root.players[1-this.id].animations.get(this.status).att_hp);
+        // console.log(this.hp);
 
-        this.hp = Math.max(0, this.hp - this.animations.get(this.status).att_hp);
+        this.$hp_div.animate({
+            width: this.$hp.parent().width() * this.hp / 100
+        }, 100);
+        this.$hp.animate({
+            width: this.$hp.parent().width() * this.hp / 100
+        }, 150);
 
         // this.beat = 1;
 
