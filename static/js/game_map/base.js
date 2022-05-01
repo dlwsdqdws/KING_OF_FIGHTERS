@@ -21,6 +21,9 @@ export class GameMap extends GameObject {
             <div class="kof-head-hp-1"><div><div></div></div></div>
             </div>`
         ));
+
+        this.time_left = 60000;  //unit in ms
+        this.$timer = this.root.$kof.find(".kof-head-timer");
     }
 
     start() {
@@ -28,6 +31,23 @@ export class GameMap extends GameObject {
     }
 
     update() {
+        this.time_left -= this.timedelta;
+
+
+        if(this.time_left < 0){
+            this.time_left = 0;
+
+            // draw
+            let [a,b] = this.root.players;
+            if(a.status !== 6 && b.status !== 6){
+                a.status = b.status = 6;
+                a.frame_current_cnt = b.frame_current_cnt = 0;
+                a.vx = b.vx = 0;
+            }
+        }
+        this.$timer.text(parseInt(this.time_left / 1000));
+        
+
         this.render();
     }
 

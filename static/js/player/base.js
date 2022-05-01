@@ -138,13 +138,14 @@ export class Player extends GameObject {
         }, 100);
         this.$hp.animate({
             width: this.$hp.parent().width() * this.hp / 100
-        }, 150);
+        }, 250);
 
         // this.beat = 1;
 
         if (this.hp <= 0) {
             this.status = 6;
             this.frame_current_cnt = 0;
+            this.vx = 0;
         }
     }
 
