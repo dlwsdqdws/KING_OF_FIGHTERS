@@ -1,5 +1,5 @@
-import {Player} from '/static/js/player/base.js';
-import {GIF} from '/static/js/utils/gif.js';
+import { Player } from '/static/js/player/base.js';
+import { GIF } from '/static/js/utils/gif.js';
 
 export class Kyok extends Player {
     constructor(root, info) {
@@ -11,17 +11,36 @@ export class Kyok extends Player {
     init_animations() {
         let outer = this;
         let offset = [0, -22, -22, -140, 0, 0, 0];
+        let r1 = {
+            x1: 120,
+            y1: 40,
+            x2: 100,  //width
+            y2: 20,   //height
+        };
+        let r2 = {
+            x1: - 120 - 100,
+            y1: 40,
+            x2: 100,
+            y2: 20,
+        }
 
-        for(let i = 0; i < 7; i++) {
+
+        for (let i = 0; i < 7; i++) {
             let gif = GIF();
             gif.load(`/static/images/player/kyo/${i}.gif`);
             this.animations.set(i, {
-                gif : gif,
-                frame_cnt : 0,
-                frame_rate : 5,
-                offset_y : offset[i],
-                loaded : false,
-                scale : 2,
+                gif: gif,
+                frame_cnt: 0,
+                frame_rate: 5,
+                offset_y: offset[i],
+                loaded: false,
+                scale: 2,
+                attack_r1: r1,
+                attack_r2: r2,
+                att_start : 16,
+                att_t : 1,
+                att_v : 1,   //v on x-axis
+                att_hp : 10,
             });
 
             gif.onload = function () {

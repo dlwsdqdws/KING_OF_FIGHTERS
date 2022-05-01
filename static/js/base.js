@@ -8,7 +8,7 @@ class KOF {
 
         this.game_map = new GameMap(this);
         this.players = [
-            new Kyok(this, {
+            new Mais(this, {
                 id : 0,
                 x : 200,
                 y : 0, 
@@ -16,7 +16,7 @@ class KOF {
                 height : 200,
                 color : 'blue',
             }),
-            new Mais(this, {
+            new Kyok(this, {
                 id : 1,
                 x : 900,
                 y : 0, 
