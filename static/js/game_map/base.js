@@ -1,4 +1,4 @@
-import {GameObject} from '/static/js/game_objects/base.js';
+import { GameObject } from '/static/js/game_objects/base.js';
 import { Controller } from '/static/js/controller/base.js';
 
 export class GameMap extends GameObject {
@@ -27,20 +27,20 @@ export class GameMap extends GameObject {
     }
 
     start() {
-
+        
     }
 
-    update_timer(){
-        let [a,b] = this.root.players;
-        if(a.status === 6 || b.status === 6) return ;
+    update_timer() {
+        let [a, b] = this.root.players;
+        if (a.status === 6 || b.status === 6) return;
 
         this.time_left -= this.timedelta;
 
-        if(this.time_left < 0){
+        if (this.time_left < 0) {
             this.time_left = 0;
 
             // draw
-            if(a.status !== 6 && b.status !== 6){
+            if (a.status !== 6 && b.status !== 6) {
                 a.status = b.status = 6;
                 a.frame_current_cnt = b.frame_current_cnt = 0;
                 a.vx = b.vx = 0;

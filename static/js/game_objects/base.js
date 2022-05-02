@@ -10,6 +10,7 @@ class GameObject {
 
     start(){
         //work when init
+        
     }
 
     update() {
